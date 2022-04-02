@@ -38,7 +38,8 @@ public class OrderController {
         try {
             Customer customer = (Customer) authentication.getPrincipal();
             return orderService.getOrderListOfCustomer(customer);
-        } catch (NoSuchElementException e) {
+        } catch (NullPointerException npe) {
+            System.err.println("Error! You need to log in to see your orders");
             return null;
         }
     }

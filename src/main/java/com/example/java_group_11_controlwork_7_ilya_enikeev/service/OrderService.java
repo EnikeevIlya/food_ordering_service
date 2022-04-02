@@ -9,12 +9,14 @@ import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.CustomerR
 import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.DishRepository;
 import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.OrderRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class OrderService {
@@ -36,6 +38,10 @@ public class OrderService {
     public List<OrderDTO> getOrderListOfCustomer(Customer customer) {
         List<Order> listOrdersByCustomer = orderRepository.findOrderByCustomerEmail(customer.getEmail());
         List<OrderDTO> listOrders = new ArrayList<>();
+        if(listOrdersByCustomer.isEmpty()){
+            log.error("You need to log in to see your orders");
+            throw new NullPointerException();
+        }
         listOrdersByCustomer.stream().forEach(eoo -> listOrders.add(OrderDTO.from(eoo)));
         return listOrders;
     }

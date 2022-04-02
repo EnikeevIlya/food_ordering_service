@@ -8,6 +8,7 @@
 //import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.DishRepository;
 //import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.OrderRepository;
 //import com.example.java_group_11_controlwork_7_ilya_enikeev.repository.ShopRepository;
+//import lombok.AllArgsConstructor;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@
 //import java.time.LocalDate;
 //
 //@Configuration
-//@RequiredArgsConstructor
+//@AllArgsConstructor
 //public class InitDatabase {
 //    private final PasswordEncoder encoder;
 //
@@ -25,10 +26,10 @@
 //    CommandLineRunner init(CustomerRepository customerRepository, DishRepository dishRepository,
 //                           ShopRepository shopRepository, OrderRepository orderRepository) {
 //        return args -> {
-//            customerRepository.deleteAll();
-//            orderRepository.deleteAll();
-//            dishRepository.deleteAll();
-//            shopRepository.deleteAll();
+////            customerRepository.deleteAll();
+////            orderRepository.deleteAll();
+////            dishRepository.deleteAll();
+////            shopRepository.deleteAll();
 //            var customer1 = customerRepository.save(Customer.builder()
 //                    .name(GenerateData.randomPersonName())
 //                    .email("anton.a@gmail.com")
@@ -44,21 +45,6 @@
 //                    .email("sergey.s@gmail.com")
 //                    .password(encoder.encode("zxc"))
 //                    .build());
-//            var dish1 = dishRepository.save(Dish.builder()
-//                    .name(GenerateData.randomDish().name)
-//                    .price(100)
-//                    .dishType(GenerateData.randomDish().type)
-//                    .build());
-//            var dish2 = dishRepository.save(Dish.builder()
-//                    .name(GenerateData.randomDish().name)
-//                    .price(110)
-//                    .dishType(GenerateData.randomDish().type)
-//                    .build());
-//            var dish3 = dishRepository.save(Dish.builder()
-//                    .name(GenerateData.randomDish().name)
-//                    .price(120)
-//                    .dishType(GenerateData.randomDish().type)
-//                    .build());
 //
 //            var ininstitution1 = shopRepository.save(Shop.builder()
 //                    .description(GenerateData.randomPlace().description)
@@ -71,6 +57,25 @@
 //            var ininstitution3 = shopRepository.save(Shop.builder()
 //                    .description(GenerateData.randomPlace().description)
 //                    .name(GenerateData.randomPlace().name)
+//                    .build());
+//
+//            var dish1 = dishRepository.save(Dish.builder()
+//                    .name(GenerateData.randomDish().name)
+//                    .price(100)
+//                    .dishType(GenerateData.randomDish().type)
+//                    .shop(ininstitution2)
+//                    .build());
+//            var dish2 = dishRepository.save(Dish.builder()
+//                    .name(GenerateData.randomDish().name)
+//                    .price(110)
+//                    .dishType(GenerateData.randomDish().type)
+//                    .shop(ininstitution1)
+//                    .build());
+//            var dish3 = dishRepository.save(Dish.builder()
+//                    .name(GenerateData.randomDish().name)
+//                    .price(120)
+//                    .dishType(GenerateData.randomDish().type)
+//                    .shop(ininstitution2)
 //                    .build());
 //
 //            var order1 = orderRepository.save(Order.builder()

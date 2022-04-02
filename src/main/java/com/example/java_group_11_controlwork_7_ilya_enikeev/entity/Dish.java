@@ -20,4 +20,7 @@ public class Dish {
     @Column(name = "dish_type")
     private String dishType;
     private Integer price;
+    @OneToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
 }

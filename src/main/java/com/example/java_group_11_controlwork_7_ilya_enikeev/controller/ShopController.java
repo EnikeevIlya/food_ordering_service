@@ -21,5 +21,4 @@ public class ShopController {
     public List<ShopDTO> findAllShops(Pageable pageable) {
         return shopService.findAllShops(pageable);
     }
-
 }

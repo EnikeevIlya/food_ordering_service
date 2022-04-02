@@ -19,20 +19,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/publications/**", "/likes/**", "comments/**")
-//                .fullyAuthenticated();
-//
-//        http.authorizeRequests()
-//                .anyRequest()
-//                .permitAll();
-//
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//
-//        http.httpBasic();
-//
-//        http.formLogin().disable().logout().disable();
-//
-//        http.csrf().disable();
+
+        http.authorizeRequests()
+                .antMatchers("/order/**")
+                .fullyAuthenticated();
+
+        http.authorizeRequests()
+                .anyRequest()
+                .permitAll();
+
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.httpBasic();
+
+        http.formLogin().disable().logout().disable();
+
+        http.csrf().disable();
+
     }
 }

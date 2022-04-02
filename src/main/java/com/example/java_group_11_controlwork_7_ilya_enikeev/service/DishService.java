@@ -24,7 +24,7 @@ public class DishService {
         Shop shop = shopRepository.findById(shopDTO.getId()).get();
         List <Dish> dishes = dishRepository.findDishByShop(shop, pageable);
         List<DishDTO> listDishes = new ArrayList<>();
-        dishes.forEach(c -> listDishes.add(DishDTO.from(c)));
+        dishes.forEach(eod -> listDishes.add(DishDTO.from(eod)));
         return listDishes;
     }
 }
